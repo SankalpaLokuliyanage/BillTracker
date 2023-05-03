@@ -11,10 +11,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.billtrackermobile.models.userModels;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -22,6 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText username, telephonenumber, email, password, conpass;
 
     FirebaseAuth auth;
+    FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
 
         SignUp = findViewById(R.id.signUpText);
         DirectToLogin = findViewById(R.id.signUpDirect);
@@ -70,6 +74,11 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
+
+                    userModels usermodel = new userModels(userName, userEmail, userNumber, userPass);
+                    String id = task.getResult().getUser().getUid();
+                    database.getReference().child("users").child(id).setValue(usermodel);
+
                     Toast.makeText(RegisterActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
                 }
                 else {
