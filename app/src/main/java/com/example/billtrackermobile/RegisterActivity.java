@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -66,7 +67,33 @@ public class RegisterActivity extends AppCompatActivity {
         String userPass = password.getText().toString();
         String userConPass = conpass.getText().toString();
 
+        if (TextUtils.isEmpty(userName)) {
+            Toast.makeText(this, "Please input your name!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(userEmail)) {
+            Toast.makeText(this, "Please input your email!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(userPass)) {
+            Toast.makeText(this, "Please make a password!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
+        if (TextUtils.isEmpty(userConPass)) {
+            Toast.makeText(this, "Please retype the password", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (userPass.length() < 7) {
+            Toast.makeText(this, "Your password must be more than 7 characters", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (userPass != userConPass) {
+            Toast.makeText(this, "Password and Confirm Password fields must be same!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
 
         //create user
