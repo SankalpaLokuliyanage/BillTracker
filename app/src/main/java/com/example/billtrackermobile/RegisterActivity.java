@@ -62,7 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
         String userPass = password.getText().toString();
         String userConPass = conpass.getText().toString();
 
-        
+
 
 
         //create user
