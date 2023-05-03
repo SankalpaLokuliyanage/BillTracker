@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "706821100990",
+    "project_id": "billtrackmobile",
+    "storage_bucket": "billtrackmobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706821100990:android:dedb7a6817c0f42cc295ef",
+        "android_client_info": {
+          "package_name": "com.example.billtrackermobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "706821100990-4au7tlamrb4sk4ndbqhqf02hu0m6omhc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYgTbWBHxq_KZXswzhTeaLnURztCtutDI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "706821100990-4au7tlamrb4sk4ndbqhqf02hu0m6omhc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
