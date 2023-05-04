@@ -42,7 +42,7 @@
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu"
         app:itemTextColor="@color/blue_800"
-        app:itemIconTint="@color/blue_800"/>    
+        app:itemIconTint="@color/blue_800"/>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
