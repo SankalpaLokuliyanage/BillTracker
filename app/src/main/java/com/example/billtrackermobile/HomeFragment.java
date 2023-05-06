@@ -29,13 +29,11 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     TextView number;
-
-    RecyclerView titlesrec;
+    
 
     FirebaseAuth auth;
     FirebaseDatabase database;
 
-    List<TitleCategories> titleCategoriesList;
 
 
     @Override
