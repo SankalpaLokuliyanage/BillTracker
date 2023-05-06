@@ -7,46 +7,53 @@
     tools:context=".HomeFragment">
 
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <LinearLayout
+        android:id="@+id/linearlayout_numbertext"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="100dp"
+        android:background="@drawable/dashboardtopgradient"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/usernumber"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:text="WELCOME"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/linearlayout_numbertext"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="-86dp">
+
+        <ImageView
+            android:layout_width="100dp"
             android:layout_height="100dp"
-            android:orientation="vertical"
-            android:background="@drawable/dashboardtopgradient"
-            tools:ignore="MissingConstraints">
+            android:src="@drawable/profile" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/profile" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/profile" />
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="WELCOME"
-                android:textAlignment="center"
-                android:textSize="30dp"
-                android:layout_marginTop="30dp"/>
-
-
-
-
-
-        </LinearLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-    </ScrollView>
-
-
+    </LinearLayout>
 
 
 </RelativeLayout>
