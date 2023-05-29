@@ -42,7 +42,7 @@ public class PromoAdaptor extends RecyclerView.Adapter<PromoAdaptor.ViewHolder> 
         return promoModelList.size();
     }
 
-    public class ViewHolder  extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView promoImage;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

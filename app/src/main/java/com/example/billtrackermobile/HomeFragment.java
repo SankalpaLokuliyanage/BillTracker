@@ -16,7 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.billtrackermobile.Adaptors.MenuAdaptor;
 import com.example.billtrackermobile.Adaptors.PromoAdaptor;
+import com.example.billtrackermobile.models.MenuModel;
 import com.example.billtrackermobile.models.PromoModel;
 //import com.example.billtrackermobile.models.TitleCategories;
 import com.example.billtrackermobile.models.userModels;
@@ -45,10 +47,15 @@ public class HomeFragment extends Fragment {
 
     FirebaseFirestore db;
 
-    RecyclerView PromoRec;
+    RecyclerView PromoRec, MenuRec;
 
+    // promo
     List<PromoModel> promoModelList;
     PromoAdaptor promoAdaptor;
+
+    //menucat
+    List<MenuModel> menuModelList;
+    MenuAdaptor menuAdaptor;
 
 
 
@@ -103,6 +110,29 @@ public class HomeFragment extends Fragment {
                     }
                 });
 
+        MenuRec = root.findViewById(R.id.menu_rec);
+
+        MenuRec.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.HORIZONTAL, false));
+        menuModelList = new ArrayList<>();
+        menuAdaptor = new MenuAdaptor(getActivity(), menuModelList);
+        MenuRec.setAdapter(menuAdaptor);
+
+
+        db.collection("menu_cat").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()){
+                            for (QueryDocumentSnapshot documentSnapshot : task.getResult()) {
+                                MenuModel menuModel = documentSnapshot.toObject(MenuModel.class);
+                                menuModelList.add(menuModel);
+                                menuAdaptor.notifyDataSetChanged();
+                            }
+                        } else {
+                            Toast.makeText(getActivity(), "Error" + task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
         return root;
     }

@@ -56,13 +56,14 @@
             android:layout_margin="10dp"
             app:cardCornerRadius="30dp"
             app:cardElevation="20dp"
+            app:cardBackgroundColor="@color/cyan_200"
             tools:ignore="MissingConstraints">
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:id="@+id/tile_menu"/>
+            android:id="@+id/menu_rec"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -76,19 +77,140 @@
             android:orientation="horizontal"
             android:weightSum="2">
 
-            <TextView
-                android:layout_width="match_parent"
+            <androidx.cardview.widget.CardView
+                android:layout_width="170dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Recommended Packages"/>
+                android:layout_margin="10dp"
+                app:cardElevation="20dp"
+                tools:ignore="MissingConstraints">
 
-            <TextView
-                android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/package_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Package Name"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:textColor="@color/blue_800"
+                    android:padding="10dp"
+                    />
+
+                <LinearLayout
+                    android:layout_marginTop="30dp"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Status"/>
+                    <TextView
+                        android:id="@+id/status"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Active"
+                        android:textColor="@color/blue_800"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="50dp"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Loyalty Data"/>
+                    <TextView
+                        android:id="@+id/loyalty_data"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0GB"
+                        android:textColor="@color/blue_800"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="170dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:layout_marginRight="7dp"
-                android:text="View All"/>
+                android:layout_margin="10dp"
+                app:cardElevation="20dp"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/Remaining_Data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Remaining Data"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:textColor="@color/blue_800"
+                    android:padding="10dp"
+                    />
+
+                <LinearLayout
+                    android:layout_marginTop="30dp"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Night Time"/>
+                    <TextView
+                        android:id="@+id/night_data"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0GB"
+                        android:textColor="@color/blue_800"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="50dp"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Day Data"/>
+                    <TextView
+                        android:id="@+id/daydata"
+                        android:layout_marginLeft="32dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="0GB"
+                        android:textColor="@color/blue_800"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
 
         </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
@@ -96,6 +218,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:id="@+id/recommended_packages"/>
+
+
 
 
 
