@@ -1,6 +1,7 @@
 package com.example.billtrackermobile.Adaptors;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.billtrackermobile.R;
 import com.example.billtrackermobile.models.MenuModel;
 import com.example.billtrackermobile.models.PromoModel;
+import com.example.billtrackermobile.semipages.DevicesActivity;
 
 import java.util.List;
 
@@ -38,6 +40,15 @@ public class MenuAdaptor extends RecyclerView.Adapter<MenuAdaptor.ViewHolder>{
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Glide.with(context).load(menuModelList.get(position).getImg_url()).into(holder.MenuImage);
         holder.name.setText(menuModelList.get(position).getName());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DevicesActivity.class);
+                intent.putExtra("type", menuModelList.get(position).getType());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
