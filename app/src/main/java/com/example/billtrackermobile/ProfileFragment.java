@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ProfileFragment extends Fragment {
 
-    TextView name;
+    TextView name, number;
 
     FirebaseAuth auth;
     FirebaseDatabase database;
@@ -35,6 +35,8 @@ public class ProfileFragment extends Fragment {
         database = FirebaseDatabase.getInstance();
 
         name = root.findViewById(R.id.username);
+        number = root.findViewById(R.id.number);
+
 
         database.getReference().child("users").child(FirebaseAuth.getInstance().getUid())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -42,6 +44,7 @@ public class ProfileFragment extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         userModels userModel = snapshot.getValue(userModels.class);
                         name.setText(userModel.getName());
+                        number.setText(userModel.getNumber());
                     }
 
                     @Override
